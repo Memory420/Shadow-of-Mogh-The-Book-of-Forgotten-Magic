@@ -4,12 +4,11 @@ using UnityEngine;
 public class CellManager : MonoBehaviour
 {
     public List<Cell> cells;
-    public List<Room> rooms;
+    public List<Cell> temporaryCells;
     public Stack<RoomPrefab> roomStack;
     private void Start()
     {
         roomStack = new Stack<RoomPrefab>();
-        Debug.Log(roomStack.Count);
     }
 
     public void CellsCount()
@@ -40,11 +39,7 @@ public class CellManager : MonoBehaviour
             Debug.LogWarning("Stack is empty!");
         }
         cells.RemoveAll(cell => cell == null);
+        temporaryCells.RemoveAll(cell => cell == null);
     }
 
-}
-public class Room
-{
-    public List<Cell> roomCells;
-    public List<Cell> doorCells;
 }
